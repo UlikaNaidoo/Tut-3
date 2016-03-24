@@ -5,14 +5,21 @@ using namespace std;
 
 class Dice{
 public:
-	int roll(int)
+	int roll()
 	{
 		int rolled_value;
 
-		srand(time(0)); // Using number of seconds function to ensure random number
+		//srand(time(0)); // Using number of seconds function to ensure random number
 		rolled_value = 1 + rand() % 6;
+		cout << "Rolled value is: " << rolled_value<< endl; 
 		return rolled_value;
 	}
+	
+	Dice()
+	{
+		srand(time(0)); // Using number of seconds function to ensure random number
+	}
+
 
 };
 
@@ -33,10 +40,13 @@ float average(Dice r, int y)
 {
 
 	int sum = 0;
+	int rolled_value;
+
 	for (int i = 0; i < y; i++)
 	{
-		sum += r.roll(i);
-		cout << r.roll(i) << endl;
+		r.roll();
+		cout << r.roll() << endl;
+		sum += r.roll();
 	}
 	float avg = (float)sum / y;
 	cout << "Average of the Array is " << avg << endl;
@@ -63,10 +73,10 @@ int main(){
 	cin >> x;
 
 	int array[1000];
-	for (int p = 0; p < y; p++)
+	for (int p = 0; p < x; p++)
 	{
-		array[p] = ud.roll(y);
-		cout << ud.roll(y) << endl;
+		array[p] = ud.roll();
+		cout << array[p] << endl;
 	}
 	average(array, x);
 
