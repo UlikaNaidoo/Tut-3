@@ -42,10 +42,9 @@ float average(Dice r, int y)
 	int sum = 0;
 	int rolled_value;
 
-	for (int i = 0; i < y; i++)
+	for (int i = 1; i < y+1; i++)
 	{
 		r.roll();
-		cout << r.roll() << endl;
 		sum += r.roll();
 	}
 	float avg = (float)sum / y;
